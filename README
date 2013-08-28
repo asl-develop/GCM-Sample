@@ -1,1 +1,6 @@
-"This is my first GitHub." 
+AndroidのWebViewアプリでGCM(Google Cloud Messaging)のサンプルを作りました
+
+【注意事項】
+　・アプリ側で取得したregistrationIdはサーバ側に自動で通知されません
+　　、、、取得したIDはサーバ側にコピペしてください、、
+　・リファクタリングは、、してません
