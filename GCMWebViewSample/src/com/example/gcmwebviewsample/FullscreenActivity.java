@@ -17,6 +17,8 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -150,9 +152,17 @@ public class FullscreenActivity extends Activity {
 		 
 		//リンクをタップしたときに標準ブラウザを起動させない
 		myWebView.setWebViewClient(new WebViewClient());
-		 
+		
+		// Javascriptのalert()を有効にする
+		myWebView.setWebChromeClient(new WebChromeClient());
+		
+		// Javascriptを有効化する
+		WebSettings webSettings = myWebView.getSettings();
+		webSettings.setJavaScriptEnabled(true);
+		//webSettings.setLoadsImagesAutomatically(true);
+		
 		//最初にVippyのページを表示する。
-        String url = "http://vip-line.herokuapp.com";
+        String url = "http://vippy.herokuapp.com";
         if (!Intent.ACTION_MAIN.equals(getIntent().getAction())) {
         	Bundle extra = getIntent().getExtras();
         	url = extra.getString("update_url");
